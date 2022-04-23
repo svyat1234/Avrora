@@ -417,15 +417,15 @@ body{
     max-width: 360px;
     background-color: #fffaf2;
     border-radius: 10px;
-    padding: 20px;
     margin-bottom: 10px;
     cursor: pointer;
-    max-height: 55px;
+    height: 55px;
     overflow: hidden;
+    transition: height 0.5s;
 }
 
 .support__questions__card-active{
-    max-height: 100%;
+    height: 150px;
 }
 
 
@@ -433,7 +433,12 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+    padding: 20px;
+}
+
+.support__questions__heading:hover{
+    color: #FB8349;
 }
 
 .support__questions__title{
@@ -446,11 +451,18 @@ body{
 
 .support__questions__arrow{
     width: 15px;
-    transform: rotate(-90deg);
+    transition: transform 0.3s;
 }
 
 .support__questions__arrow-active{
-    transform: rotate(90deg);
+    transform: rotate(-180deg);
+}
+
+.support__questions__info{
+    display: flex;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
 }
 
 .app{
@@ -574,6 +586,10 @@ body{
     align-items: center;
 }
 
+.footer__form__button-send{
+    animation: send 0.7s;
+}
+
 
 
 .footer__socials{
@@ -635,10 +651,16 @@ body{
     display: flex;
     justify-content: flex-end;
     transform: translateX(-101%);
+    transition: transform 0.5s;
+}
+
+.menu-active{
+    transform: translateX(0);
 }
 
 .menu__nav{
-    padding: 150px;
+    padding-top: 150px;
+    padding-right: 150px;
     display: flex;
     flex-direction: column;
 }
@@ -823,7 +845,7 @@ body{
     background-color: #fede77;
 }
 
-/* @keyframes send {
+@keyframes send {
     0% { 
         transform: scale(1);
      }
@@ -843,7 +865,7 @@ body{
         transform: scale(1);
     }
   }
- */
+
  
 
  @media screen and (max-width: 1280px) {
@@ -852,6 +874,10 @@ body{
     }
     .support__questions__card{
         max-width: 350px;
+    }
+    .menu__nav{
+        padding-top: 150px;
+        padding-right: 70px;
     }
  }
 
@@ -898,6 +924,9 @@ body{
     
     .interest__card-courier{
         background-size: 45%;
+    }
+    .menu{
+        max-width: 40%;
     }
  }
  
@@ -1095,6 +1124,9 @@ body{
         color: #fff;
         background-color: #6252B0;
     }
+    .menu{
+        max-width: 60%;
+    }
 }
 
 @media screen and (max-width: 480px){
@@ -1131,7 +1163,10 @@ body{
         padding-top: 20px;
     }
     .support__questions__card{
-        max-height: 70px;
+        height: 70px;
+    }
+    .support__questions__card-active{
+        height: 150px;
     }
     .app__offer__img{
         max-width: 47%;
@@ -1161,5 +1196,12 @@ body{
     }
     .heading__title{
         font-size: 50px;
+    }
+    .menu{
+        max-width: 100%;
+        justify-content: center;
+    }
+    .menu__nav{
+        padding-right: 0;
     }
 }
