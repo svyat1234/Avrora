@@ -60,3 +60,121 @@ footerForm.addEventListener("submit", (e) => {
       footerSend.classList.remove('footer__form__button-send');
     }
 });
+
+// Корзина
+
+const basketPrice = document.querySelector('.basket__price')
+const basketReg = document.querySelector('.basket__button')
+const basketNull = document.querySelector('#basketNull')
+const basketCards = document.querySelectorAll('.basket__card')
+
+
+//  Проверка наличия продуктов в корзине и отображение нужного функуионала 
+const cardsLenghtCheck = () => {
+    const basketCards = document.querySelectorAll('.basket__card')
+    if (basketCards.length === 0) {
+        basketPrice.style.display = "none"
+        basketReg.style.display = "none"
+        basketNull.style.display = "flex"
+    } else {
+        basketPrice.style.display = "block"
+        basketReg.style.display = "flex"
+        basketNull.style.display = "none"
+    }
+}
+// Отображение колличества товаров в корзине
+    const basketQuality = () => {
+        const basketCards = document.querySelectorAll('.basket__card')
+        document.querySelector('.header__basket__amount').textContent = basketCards.length
+    }
+    basketQuality()
+
+        // Открытие и скрытие корзины
+
+        const basket = document.querySelector('.basket')
+        const basketBtn = document.querySelector('.header__basket')
+
+        basketBtn.addEventListener('click', () => {
+            cardsLenghtCheck()
+            basket.style.display = "flex"
+
+            
+            // Функционал внутри корзины 
+            
+            const basketCards = document.querySelectorAll('.basket__card')
+            basketCards.forEach((card, i) => {
+                card.addEventListener('click', (e) => {
+
+                    const basketCardsNum = document.querySelectorAll('.basket__card__number')
+                    const plus =  document.querySelectorAll('#plus')
+                    const minus =  document.querySelectorAll('#minus')
+
+                    let count = basketCardsNum[i].textContent
+                    if (e.target.closest('#plus') && count >= 1) {
+                        minus[i].style.backgroundColor = "#6252B0"
+                        count++
+                        basketCardsNum[i].textContent = count
+                    }
+                    if (e.target.closest('#plus') && count >= 10) {
+                        plus[i].style.backgroundColor = "#ab9afe"
+                        count = 10
+                        basketCardsNum[i].textContent = count
+                    }
+                    if (e.target.closest('#minus') && count > 1) {
+                        plus[i].style.backgroundColor = "#6252B0"
+                        count--
+                        basketCardsNum[i].textContent = count
+                    } 
+                    if (e.target.closest('#minus') && count == 1) {
+                        minus[i].style.backgroundColor = "#ab9afe"
+                        count = 1
+                        basketCardsNum[i].textContent = count
+                    }
+                    
+                })
+            })
+
+            
+        })
+
+        basket.addEventListener('click', (e) => {
+            if (e.target.classList.contains('basket') || e.target.closest('.basket__close')) {
+                basket.style.display = "none"
+            }
+        })
+
+
+
+
+        // Добавление продуктов в корзину
+
+        const productsBtns = document.querySelectorAll('.products__card__button')
+        const productsNames = document.querySelectorAll('.prosucts__card__title')
+        const productsPrices = document.querySelectorAll('.products__card__price__info')
+
+        const generateCardProduct = (title, price) => {
+            document.querySelector('.basket__cards').innerHTML += `
+                    <div class="basket__card">
+                        <h3 class="basket__card__title">${title}</h3>
+                        <div class="basket__card__info">
+                            <div class="basket__card__control">
+                                <span id="minus" class="basket__card__count">-</span>
+                                <span class="basket__card__number">1</span>
+                                <span id="plus" class="basket__card__count">+</span>
+                            </div>
+                            <span class="basket__card__price"><span class="basket__card__price-info">${price}</span>р</span>
+                        </div>
+                        <!-- /.basket__card__info -->
+                    <button class="basket__card__delete"></button>
+                    </div>
+                    <!-- /.basket__card -->
+            `
+        }
+
+        productsBtns.forEach((btn, i) => {
+            btn.addEventListener('click', () => {
+                generateCardProduct(productsNames[i].textContent, productsPrices[i].textContent)
+                basketQuality()
+            })
+        })
+

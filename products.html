@@ -29,6 +29,7 @@
                 <div class="header__buttons ">
                     <button class="header__button header__button__login">Вход</button>
                     <button class="header__button header__button__reg">Регистрация</button>
+                    <button class="header__basket"><span class="header__basket__amount">0</span></button>
                 </div>
                 <!-- /.header__buttons -->
             </div>
@@ -50,45 +51,45 @@
         <!-- /.container -->
     </section>
     <!-- /.heading -->
-    <section class="stock stock__shop">
+    <section class="prosucts">
         <div class="container">
-            <div class="stock__cards">
-                <a href="./products.html" class="stock__card stock__shop__card">
-                    <div class="stock__card__img__block"><img src="./img/stock/fruits.jpg" alt="" class="stock__card__img"></div>
-                    <h3 class="stock__card__title">Фрукты</h3>
-                    <span class="stock__card__time">Время доставки: от 30 минут</span>
-                </a>
-                <a href="#" class="stock__card stock__shop__card">
-                    <div class="stock__card__img__block"><img src="./img/stock/vegetables.jpg" alt="" class="stock__card__img"></div>
-                    <h3 class="stock__card__title">Зелень</h3>
-                    <span class="stock__card__time">Время доставки: от 30 минут</span>
-                </a>
-                <a href="#" class="stock__card stock__shop__card">
-                    <div class="stock__card__img__block"><img src="./img/stock/burgers.jpg" alt="" class="stock__card__img"></div>
-                    <h3 class="stock__card__title">Бургеры</h3>
-                    <span class="stock__card__time">Время доставки: от 30 минут</span>
-                </a>
-                <a href="#" class="stock__card stock__shop__card">
-                    <div class="stock__card__img__block"><img src="./img/stock/sushi.jpg" alt="" class="stock__card__img"></div>
-                    <h3 class="stock__card__title">Суши</h3>
-                    <span class="stock__card__time">Время доставки: от 30 минут</span>
-                </a>
-                <a href="#" class="stock__card stock__shop__card">
-                    <div class="stock__card__img__block"><img src="./img/stock/coffee.jpg" alt="" class="stock__card__img"></div>
-                    <h3 class="stock__card__title">Кофе</h3>
-                    <span class="stock__card__time">Время доставки: от 30 минут</span>
-                </a>
-                <a href="#" class="stock__card stock__shop__card">
-                    <div class="stock__card__img__block"><img src="./img/stock/meat.jpg" alt="" class="stock__card__img"></div>
-                    <h3 class="stock__card__title">Мясо</h3>
-                    <span class="stock__card__time">Время доставки: от 30 минут</span>
-                </a>
+            <div class="prosucts__cards">
+                <div href="#" class="prosucts__card">
+                    <div class="prosucts__card__img__block"><img src="" alt="" class="prosucts__card__img"></div>
+                    <h3 class="prosucts__card__title">Груша обыкновенная</h3>
+                    <span class="prosucts__card__type">Груши</span>
+                    <div class="products__card__buy">
+                        <button class="products__card__button">В корзину</button>
+                        <span class="products__card__price">Цена: <span class="products__card__price__info">250</span>р</span>
+                    </div>
+                    <!-- /.products__card__buy -->
+                </div>
+                <div href="#" class="prosucts__card">
+                    <div class="prosucts__card__img__block"><img src="" alt="" class="prosucts__card__img"></div>
+                    <h3 class="prosucts__card__title">Груша золотая</h3>
+                    <span class="prosucts__card__type">Груши</span>
+                    <div class="products__card__buy">
+                        <button class="products__card__button">В корзину</button>
+                        <span class="products__card__price">Цена: <span class="products__card__price__info">100</span>р</span>
+                    </div>
+                    <!-- /.products__card__buy -->
+                </div>
+                <div href="#" class="prosucts__card">
+                    <div class="prosucts__card__img__block"><img src="" alt="" class="prosucts__card__img"></div>
+                    <h3 class="prosucts__card__title">Фрукты</h3>
+                    <span class="prosucts__card__type">Яблоки</span>
+                    <div class="products__card__buy">
+                        <button class="products__card__button">В корзину</button>
+                        <span class="products__card__price">Цена: <span class="products__card__price__info">100</span>р</span>
+                    </div>
+                    <!-- /.products__card__buy -->
+                </div>
             </div>
-            <!-- /.stock__cards -->
+            <!-- /.prosucts__cards -->
         </div>
         <!-- /.container -->
     </section>
-    <!-- /.stock -->
+    <!-- /.prosucts -->
     <section class="section app">
         <div class="container app__block">
             <div class="app__heading">
@@ -156,5 +157,23 @@
         <!-- /.menu__block -->
     </div>
     <!-- /.menu -->
+    <div class="basket">
+        <div class="basket__content">
+            <h2 class="basket__title">Корзина</h2>
+            <span id="basketNull">Товаров в корзине ещё нет.</span>
+            <div class="basket__cards">
+
+            </div>
+            <!-- /.basket__cards -->
+            <div class="basket__reg">
+                <span class="basket__price">Общая стоимость: <span class="basket__price__info">500р</span></span>
+                <button class="basket__button">Оформить заказ</button>
+            </div>
+            <!-- /.basket__reg -->
+            <button class="basket__close"></button>
+        </div>
+        <!-- /.backet__content -->
+    </div>
+    <!-- /.basket -->
 </body>
 </html>
