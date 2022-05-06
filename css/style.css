@@ -1112,6 +1112,10 @@ body{
     margin-top: 20px;
 }
 
+.basket__price__hiden{
+    display: none;
+}
+
 /* .basket__card__number{
     
 } */

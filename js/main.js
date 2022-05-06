@@ -97,44 +97,6 @@ const cardsLenghtCheck = () => {
         basketBtn.addEventListener('click', () => {
             cardsLenghtCheck()
             basket.style.display = "flex"
-
-            
-            // Функционал внутри корзины 
-            
-            const basketCards = document.querySelectorAll('.basket__card')
-            basketCards.forEach((card, i) => {
-                card.addEventListener('click', (e) => {
-
-                    const basketCardsNum = document.querySelectorAll('.basket__card__number')
-                    const plus =  document.querySelectorAll('#plus')
-                    const minus =  document.querySelectorAll('#minus')
-
-                    let count = basketCardsNum[i].textContent
-                    if (e.target.closest('#plus') && count >= 1) {
-                        minus[i].style.backgroundColor = "#6252B0"
-                        count++
-                        basketCardsNum[i].textContent = count
-                    }
-                    if (e.target.closest('#plus') && count >= 10) {
-                        plus[i].style.backgroundColor = "#ab9afe"
-                        count = 10
-                        basketCardsNum[i].textContent = count
-                    }
-                    if (e.target.closest('#minus') && count > 1) {
-                        plus[i].style.backgroundColor = "#6252B0"
-                        count--
-                        basketCardsNum[i].textContent = count
-                    } 
-                    if (e.target.closest('#minus') && count == 1) {
-                        minus[i].style.backgroundColor = "#ab9afe"
-                        count = 1
-                        basketCardsNum[i].textContent = count
-                    }
-                    
-                })
-            })
-
-            
         })
 
         basket.addEventListener('click', (e) => {
@@ -155,6 +117,7 @@ const cardsLenghtCheck = () => {
         const generateCardProduct = (title, price) => {
             document.querySelector('.basket__cards').innerHTML += `
                     <div class="basket__card">
+                        <label class="basket__price__hiden">${price}</label
                         <h3 class="basket__card__title">${title}</h3>
                         <div class="basket__card__info">
                             <div class="basket__card__control">
@@ -171,10 +134,87 @@ const cardsLenghtCheck = () => {
             `
         }
 
-        productsBtns.forEach((btn, i) => {
+        productsBtns.forEach((btn, btnI) => {
             btn.addEventListener('click', () => {
-                generateCardProduct(productsNames[i].textContent, productsPrices[i].textContent)
+                generateCardProduct(productsNames[btnI].textContent, productsPrices[btnI].textContent)
                 basketQuality()
+        
+
+                // Функционал внутри корзины
+                let basketCards = document.querySelectorAll('.basket__card')
+                let plus = document.querySelectorAll('#plus')
+                let minus = document.querySelectorAll('#minus')
+                let basketNums = document.querySelectorAll('.basket__card__number')
+                let prices = document.querySelectorAll('.basket__card__price-info')
+                let pricesHidden = document.querySelectorAll('.basket__price__hiden')
+
+                basketCards.forEach((basketCard, i) => {
+                    basketCard.addEventListener('click', (e) => {
+                        if (e.target.closest('#plus')) {
+                            basketNums[i].textContent = +basketNums[i].textContent + 1
+                            prices[i].textContent = +prices[i].textContent + +pricesHidden[i].textContent
+                            if (basketNums[i].textContent >= 10) {
+                                plus[i].style.backgroundColor = "#ab9afe"
+                                basketNums[i].textContent = 10
+                                prices[i].textContent = +pricesHidden[i].textContent * 10
+                            } else {
+                                minus[i].style.backgroundColor = "#6252b0"
+                            }
+                        }
+                        if (e.target.closest('#minus')) {
+                            basketNums[i].textContent = +basketNums[i].textContent - 1
+                            prices[i].textContent = +prices[i].textContent - +pricesHidden[i].textContent
+                            if (basketNums[i].textContent < 2) {
+                                minus[i].style.backgroundColor = "#ab9afe"
+                                basketNums[i].textContent = 1
+                                prices[i].textContent = +pricesHidden[i].textContent
+                            } else {
+                                plus[i].style.backgroundColor = "#6252b0"
+                            }
+                        } if (e.target.closest('.basket__card__delete')) {
+                            basketCards[i].remove()
+                            basketQuality()
+                            cardsLenghtCheck()
+                        }
+                    })
+                })
             })
         })
 
+
+
+
+        // Нерабочий функционал корзины
+
+        // const basketCards = document.querySelectorAll('.basket__card')
+        // basketCards.forEach((card, i) => {
+        //     card.addEventListener('click', (e) => {
+
+        //         const basketCardsNum = document.querySelectorAll('.basket__card__number')
+        //         const plus =  document.querySelectorAll('#plus')
+        //         const minus =  document.querySelectorAll('#minus')
+
+        //         let count = basketCardsNum[i].textContent
+        //         if (e.target.closest('#plus') && count >= 1) {
+        //             minus[i].style.backgroundColor = "#6252B0"
+        //             count++ 
+        //             basketCardsNum[i].textContent = count
+        //         }
+        //         if (e.target.closest('#plus') && count >= 10) {
+        //             plus[i].style.backgroundColor = "#ab9afe"
+        //             count = 10
+        //             basketCardsNum[i].textContent = count
+        //         }
+        //         if (e.target.closest('#minus') && count > 1) {
+        //             plus[i].style.backgroundColor = "#6252B0"
+        //             count--
+        //             basketCardsNum[i].textContent = count
+        //         } 
+        //         if (e.target.closest('#minus') && count == 1) {
+        //             minus[i].style.backgroundColor = "#ab9afe"
+        //             count = 1
+        //             basketCardsNum[i].textContent = count
+        //         }
+                
+        //     })
+        // })
