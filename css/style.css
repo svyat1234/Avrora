@@ -168,7 +168,7 @@ body{
     position: relative;
     width: 30px;
     height: 30px;
-    background: url("../img/basket.svg") no-repeat center / cover;
+    background: #FEDE77 url("../img/basket.svg") no-repeat center / cover;
     border: none;
     cursor: pointer;
     transition: background 0.3s;
@@ -730,7 +730,7 @@ body{
 
 .heading{
     background-color: #FEDE77;
-    height: 40vh;
+    height: 370px;
     padding-top: 170px;
     text-align: center;
     border-bottom-left-radius: 20%;
@@ -839,7 +839,12 @@ body{
     cursor: pointer;
 }
 
+
 .products__card__button:hover{
+    background-color: #FB8349;
+}
+
+.products__card__button__active{
     background-color: #FB8349;
 }
 
@@ -847,9 +852,6 @@ body{
     font-size: 18px;
 }
 
-/* .basket{
-    bac
-} */
 
 /* Страница contacts */
 
@@ -1058,6 +1060,11 @@ body{
     margin-top: 30px;
 }
 
+.basket__reg__hidden{
+    display: none;
+}
+
+
 .basket__price__info{
     font-weight: bold;
 }
@@ -1077,6 +1084,10 @@ body{
     cursor: pointer;
 }
 
+.basket__button:hover{
+    background-color: #6252B0;
+}
+
 .basket__card__delete{
     cursor: pointer;
     position: absolute;
@@ -1091,10 +1102,6 @@ body{
 }
 
 
-.basket__button:hover{
-    background-color: #6252B0;
-}
-
 .basket__close{
     width: 20px;
     height: 20px;
@@ -1107,18 +1114,128 @@ body{
     cursor: pointer;
 }
 
+.basket__price__hiden{
+    display: none;
+}
+
 #basketNull{
     display: none;
     margin-top: 20px;
 }
 
-.basket__price__hiden{
-    display: none;
+.select{
+    border: none;
+    background-color: #FEDE77;
+    padding: 10px 20px;
+    border-radius: 20px;
 }
 
-/* .basket__card__number{
-    
-} */
+.option{
+    font-size: 20px;
+}
+
+.prosucts__types__block{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    max-width: 250px;
+    width: 100%;
+    margin: auto;
+}
+
+.products__chose{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #fede77;
+    border-radius: 20px;
+    max-width: 100%;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+
+.products__chose:active{
+    background-color: #FB8349;
+    color: #fff;
+}
+
+.products__chose__arrow{
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    margin-top: 15px;
+    margin-right: 20px;
+    position: absolute;
+    background: url("../img/arrow.svg") no-repeat center / cover;
+}
+
+.products__chose__arrow__active{
+    transform: rotate(180deg);
+}
+
+
+.prosucts__types{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    margin-top: 20px;
+    background-color: #FEDE77;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: height 0.3s;
+    height: 0;
+}
+
+.prosucts__types__active{
+    height: auto;
+}
+
+.prosucts__type{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 100%;
+    margin: auto;
+    padding: 10px 0;
+    transition: all 0.3s;
+}
+
+
+.prosucts__type:active{
+    background-color: #FB8349;
+    color: #fff;
+}
+
+.up{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    margin: 20px;
+    background: #fede77 url("../img/arrow.svg") no-repeat center / cover;
+    background-size: 50%;
+    transform: rotate(180deg) scale(0);
+    border-radius: 50%;
+    z-index: 10000;
+    transition: all 0.3s;
+}
+
+.up-active{
+    transform: rotate(180deg) scale(1);
+}
+
 
 @keyframes send {
     0% { 
@@ -1141,7 +1258,6 @@ body{
     }
   }
 
- 
 
  @media screen and (max-width: 1280px) {
     .container{
@@ -1156,12 +1272,19 @@ body{
     }
  }
 
+
  @media screen and (max-width: 1024px){
     .container{
         max-width: 768px;
     }
     .header__row{
         max-width: 35%;
+    }
+    .header__socials{
+        margin-left: 20px;
+    }
+    .header__button{
+        padding: 15px 20px;
     }
     .hero__text{
         max-width: 400px;
@@ -1231,12 +1354,34 @@ body{
     .header__logo{
         width: 173px;
     }
+    .header__row{
+        max-width: 60%;
+    }
     .header__row__nav{
         order: 3;
     }
     .header__row__bottons{
         order: 2;
         margin: 20px 0;
+    }    
+    .header__button{
+        padding: 15px 30px;
+    }
+    .header__basket{
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        margin: 20px;
+        width: 50px;
+        height: 50px;
+        background-size: 60%;
+        border-radius: 50%;
+    }
+    .header__basket__amount{
+        top: 0;
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
     }
     .hero{
         text-align: center;
@@ -1415,12 +1560,24 @@ body{
     .products__card__button:hover{
         background-color: #514391;
     }
+    .basket__card__count:hover{
+        transform: scale(1);
+    }
+    .basket__button:hover{
+        background-color: #FB8349;
+    }
+    .header__basket:hover{
+        background: #fede77 url("../img/basket.svg") no-repeat center / 60%;
+    }
     .menu{
         max-width: 60%;
     }
 }
 
 @media screen and (max-width: 480px){
+    .header__row{
+        max-width: 90%;
+    }
     .container{
         max-width: 320px;
     }
@@ -1481,7 +1638,6 @@ body{
         align-items: center;
     }
     .heading{
-        height: 45vh;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
     }
@@ -1501,4 +1657,34 @@ body{
     .prosucts__card__img{
         height: 220px;
     }
+    .basket__card{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .basket__card__title{
+        margin-bottom: 20px;
+    }
 }
+
+@media screen and (min-width: 768px) {
+    .prosucts__type:hover{
+        background-color: #FB8349;
+        color: #fff;
+    }
+    .products__chose:hover{
+        background-color: #FB8349;
+        color: #fff;
+    }
+    
+}
+
+@media screen and (max-height: 720px) {
+    .hero {
+      padding-top: 150px;
+    }
+  }
+  @media (max-width: 768px) and (max-height: 720px) {
+    .hero {
+      padding-top: 200px;
+    }
+  }

@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=PT+Sans+Caption&display=swap" rel="stylesheet">
     <script src="./js/main.js" defer></script>
+    <script src="./js/filter.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -40,11 +41,13 @@
     <!-- /.header -->
     <section class="heading">
         <div class="container">
-            <h1 class="heading__title">Магазин</h1>
+            <h1 class="heading__title">Фрукты</h1>
             <div class="heading__location">
                 <a href="index.html" class="heading__link">Главная</a>
                 <span class="heading__delimiter">/</span>
-                <span class="heading__finish">Магазин</span>
+                <a href="shop.html" class="heading__link">Магазин</a>
+                <span class="heading__delimiter">/</span>
+                <span class="heading__finish">Фрукты</span>
             </div>
             <!-- /.heading__location -->
         </div>
@@ -53,6 +56,21 @@
     <!-- /.heading -->
     <section class="prosucts">
         <div class="container">
+            <div class="prosucts__types__block">
+                <div class="products__chose__arrow"></div>
+                <span class="products__chose">Все продукты</span>
+                <div class="prosucts__types">
+                    <span class="prosucts__type">Все продукты</span>
+                </div>
+                <!-- /.prosucts__types -->
+            </div>
+            <!-- /.prosucts__types -->
+            <!-- <select class="select" name="" id="">
+                <option class="option" value="Всё">Всё</option>
+                <option class="option" value="Груши">Груши</option>
+                <option class="option" value="Дада">Дада</option>
+                <option class="option" value="Ноу">Ноу</option>
+            </select> -->
             <div class="prosucts__cards">
                 <div href="#" class="prosucts__card">
                     <div class="prosucts__card__img__block"><img src="" alt="" class="prosucts__card__img"></div>
@@ -76,7 +94,7 @@
                 </div>
                 <div href="#" class="prosucts__card">
                     <div class="prosucts__card__img__block"><img src="" alt="" class="prosucts__card__img"></div>
-                    <h3 class="prosucts__card__title">Фрукты</h3>
+                    <h3 class="prosucts__card__title">Яблоко красное</h3>
                     <span class="prosucts__card__type">Яблоки</span>
                     <div class="products__card__buy">
                         <button class="products__card__button">В корзину</button>
@@ -161,12 +179,10 @@
         <div class="basket__content">
             <h2 class="basket__title">Корзина</h2>
             <span id="basketNull">Товаров в корзине ещё нет.</span>
-            <div class="basket__cards">
-
-            </div>
+            <div class="basket__cards"></div>
             <!-- /.basket__cards -->
             <div class="basket__reg">
-                <span class="basket__price">Общая стоимость: <span class="basket__price__info">500р</span></span>
+                <span class="basket__price">Общая стоимость: <span class="basket__price__info">0</span>р</span>
                 <button class="basket__button">Оформить заказ</button>
             </div>
             <!-- /.basket__reg -->
@@ -175,5 +191,6 @@
         <!-- /.backet__content -->
     </div>
     <!-- /.basket -->
+    <div class="up"></div>
 </body>
 </html>
