@@ -287,20 +287,18 @@ uniqProductsArray.forEach(newType => {
     `
 })
 
-window.onresize = () => {
-    if (document.documentElement.clientWidth < 768) {
-        const scrollUp = document.querySelector('.up')
-        
-        window.onscroll = () => {
-            if (window.scrollY > 800) {
-                scrollUp.classList.add('up-active')
-            } else {
-                scrollUp.classList.remove('up-active')
-            }
-        }
-        scrollUp.addEventListener('click', () => {
-            window.scrollTo(0, 0)
-        })
-    }
-}
 
+if (document.documentElement.clientWidth < 768) {
+    const scrollUp = document.querySelector('.up')
+    
+    window.onscroll = () => {
+        if (window.scrollY > 800) {
+            scrollUp.classList.add('up-active')
+        } else {
+            scrollUp.classList.remove('up-active')
+        }
+    }
+    scrollUp.addEventListener('click', () => {
+        window.scrollTo(0, 0)
+    })
+}

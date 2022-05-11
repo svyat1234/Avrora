@@ -3,6 +3,7 @@
     padding: 0;
     margin: 0;
     outline: none;
+    scroll-behavior: smooth;
 }
 /* #514391 */
 
